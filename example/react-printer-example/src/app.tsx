@@ -1,0 +1,20 @@
+import React, { useRef } from 'react'
+import { hot } from 'react-hot-loader'
+import Printer, { print } from '@eyelly/react-printer'
+
+function App() {
+  const printContent = useRef(null)
+
+  return (
+    <>
+      <div ref={printContent}> this is content to print </div>
+      <div> this is normal content </div>
+      <Printer shotcut={true} content={printContent}>
+        <button>Printer</button>
+      </Printer>
+      <button onClick={() => print({ content: printContent })}>print</button>
+    </>
+  )
+}
+
+export default hot(module)(App)

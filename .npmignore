@@ -1,0 +1,14 @@
+example/
+node_modules/
+scripts/
+src/
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.npmignore
+.prettierrc.js
+babel.config.js
+package-lock.json
+tsconfig.json
+webpack.config.js

@@ -1,0 +1,7 @@
+dist/
+lib/
+es/
+types/
+scripts/
+babel.config.js
+webpack.config.js
