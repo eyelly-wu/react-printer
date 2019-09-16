@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect } from 'react'
-import print, { PrintProps } from '../../utils'
+import _print, { PrintProps } from '../../utils'
 
 export interface PrinterProps extends PrintProps {
   children: ReactNode
@@ -10,7 +10,7 @@ export default function Printer(props: PrinterProps) {
   const { children, shotcut = true, content, newWindow = false, title } = props
 
   const onClick = () => {
-    print({
+    _print({
       content: content,
       newWindow,
       title

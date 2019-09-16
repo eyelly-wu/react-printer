@@ -5,36 +5,39 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'react-printer.js',
+    filename: 'index.js',
     library: 'Printer',
-    libraryTarget: 'umd'
+    libraryTarget: 'var'
   },
   resolve: {
-    extensions: ['.ts', '.tsx']
+    extensions: ['.ts', '.tsx', '.js']
   },
   externals: {
-    react: {
-      commonjs: 'React',
-      commonjs2: 'React',
-      root: 'React'
-    }
+    react: 'React'
   },
   module: {
     rules: [
       {
-        test: /.(ts)x?$/,
+        test: /.(js|ts)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           presets: [
-            '@babel/preset-env',
+            ['@babel/preset-env',
+              {
+                'targets': {
+                  'esmodules': false
+                },
+                'modules': 'umd'
+              }],
             '@babel/preset-react',
             ['@babel/preset-typescript',
               {
                 isTSX: true,
                 allExtensions: true
               }]
-          ]
+          ],
+          plugins: ["add-module-exports"]
         }
       }
     ]

@@ -4,15 +4,17 @@ React-Printer is a simple react component for partial printing on the browser
 
 ## Installation
 
+**NPM**
 ```
 npm i -S @eyelly/react-printer
 ```
+**CDN**
+```HTML
+<script src="https://unpkg.com/@eyelly/react-printer/dist"></script>
+```
+## Usage & Example
 
-## Usage
-
-The Printer component and the print method are provided for use, and either one can be selected.
-
-##### Printer
+**In Module**
 ```javascript
 import React, { useRef } from 'react'
 import Printer from '@eyelly/react-printer'
@@ -31,34 +33,50 @@ function App() {
   )
 }
 ```
-
-##### print
-
-```javascript
-import React, { useRef } from 'react'
-import { print } from '@eyelly/react-printer'
-
-function App() {
-  const printContent = useRef(null)
-
-  return (
-    <>
-      <div ref={printContent}> this is content to print </div>
-      <div> this is normal content </div>
-      <button onClick={() => print({ content: printContent })}>print</button>
-    </>
-  )
-}
+**In HTML**
 ```
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/@eyelly/react-printer/dist"></script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+      function App(){
+        const printContent = React.useRef(null)
+        return (
+          <React.Fragment>
+            <div ref={printContent}> this is content to print </div>
+            <div> this is normal content </div>
+            <Printer content={printContent}>
+              <button>printer</button>
+            </Printer>
+          </React.Fragment>
+        )
+      }
+
+      ReactDOM.render( <App/> , document.getElementById('app') )
+    </script>
+  </body>
+
+</html>
+
+```
 ## API
 
-| Property  | Description                          | Type        | Default | Printer / print |
-| :-------- | :----------------------------------- | :---------- | :------ | :-------------- |
-| content   | content to be printed                | HTMLElement | -       | both            |
-| shotcut   | enable browser printing shortcut     | boolean     | true    | Printer only    |
-| newWindow | open a new window to print           | boolean     | false   | both            |
-| title     | the title of the newly opened window | boolean     | -       | both            |
+| Property  | Description                          | Type                  | Default |
+| :-------- | :----------------------------------- | :-------------------- | :------ |
+| content   | content to be printed                | {current:HTMLElement} | -       |
+| shotcut   | enable browser printing shortcut     | boolean               | true    |
+| newWindow | open a new window to print           | boolean               | false   |
+| title     | the title of the newly opened window | boolean               | -       |
 
 ## License
 

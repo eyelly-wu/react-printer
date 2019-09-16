@@ -1,7 +1,7 @@
 {
   "name": "@eyelly/react-printer",
-  "version": "1.0.0-beta.0",
-  "description": "a simple react component for partial printing on the browser",
+  "version": "1.0.0-beta.1",
+  "description": "A simple react component for partial printing on the browser",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "types",
@@ -21,7 +21,10 @@
   "sideEffects": false,
   "keywords": [
     "react",
-    "print"
+    "print",
+    "printer",
+    "react-print",
+    "react-printer"
   ],
   "author": "Eyelly Wu",
   "license": "MIT",
@@ -39,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.1.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.2.0",
     "eslint-plugin-prettier": "^3.1.0",
@@ -47,5 +51,8 @@
     "typescript": "^3.6.2",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {
+    "@eyelly/print": "^1.0.0-beta.pre.1"
   }
 }

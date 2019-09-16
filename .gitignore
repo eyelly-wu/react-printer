@@ -66,3 +66,4 @@ es/
 dist/
 types/
 **/dist
+**/package-lock.json
