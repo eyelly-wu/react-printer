@@ -80,4 +80,4 @@ function App() {
 
 ## License
 
-[MIT]()
+[MIT](https://github.com/eyelly-wu/react-printer/blob/master/LICENSE)
